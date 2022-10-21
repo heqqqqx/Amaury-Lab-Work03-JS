@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab-Work04-JS</title>
+</head>
+
+<body>
+    <h1>Lab-Work04-JS</h1>
+
+    <script>
+
+        var courses = prompt("How many courses did you finish?", "0");
+        /*Declare a variable named “numOfCourses” to save the number of courses  */
+        var numOfCourses = parseInt(courses);
+        /*check that the value entered by the user is an integer , not a letter, and if so, stop the rest of your code from being executed and Use document.write to output the text “Invalid Input!”,  */
+        if (isNaN(numOfCourses)) {
+            document.write("Invalid Input!");
+        }
+        else {
+
+            /*Declare an empty array variable named “courseMarks”, this variable will be used to contain the 
+     course marks*/
+            var courseMarks = [];
+            /*Declare a variable named “total” to save the total of the course marks*/
+            var total = 0;
+            /*Declare a variable named “average” to save the average of the course marks*/
+            var average = 0;
+            /*Declare a variable named “grade” to save the grade of the student*/
+            var grade = "";
+            /*Declare a variable named “i” to be used as a counter in the loop*/
+            var i = 0;
+            /*Use a for loop to ask the user to enter the course marks and save them in the array “courseMarks”*/
+            for (i = 0; i < numOfCourses; i++) {
+                var mark = prompt("Enter the mark of course " + (i + 1), "0");
+                var markNum = parseInt(mark);
+                if (isNaN(markNum)) {
+                    document.write("Invalid Input!");
+                    break;
+                }
+                else {
+                    courseMarks.push(markNum);
+                }
+            }
+           
+            for (i = 0; i < courseMarks.length; i++) {
+                document.write("Course " + (i + 1) + " mark is " + courseMarks[i] + "<br>");
+            }
+            /*Use a for loop to calculate the total of the course marks*/
+            for (i = 0; i < numOfCourses; i++) {
+                total += courseMarks[i];
+            }
+            /*Calculate the average of the course marks*/
+            average = total / numOfCourses;
+            /*Use if-else statements to calculate the grade of the student based on the average of the course marks*/
+            if (average >= 90 && average <= 100) {
+                grade = "A+";
+            }
+            else if (average >= 80 && average < 90) {
+                grade = "B";
+            }
+            else if (average >= 70 && average < 80) {
+                grade = "C";
+            }
+            else if (average >= 60 && average < 70) {
+                grade = "D";
+            }
+            else {
+                grade = "F";
+            }
+            if (average < 0 || average > 100) {
+                document.write("Sorry, All the marks have to be from minimum 0 to maximum 100!");
+            }
+            else {
+                /*Print or display the average, and grade of the student to the user using document.write()*/
+                document.write("Your final average is " + average + ". Your grade is " + grade);
+
+            }
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
